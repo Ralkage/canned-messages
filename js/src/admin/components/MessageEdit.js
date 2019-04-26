@@ -1,7 +1,7 @@
 import app from 'flarum/app';
 import Component from 'flarum/Component';
 import Button from 'flarum/components/Button';
-import LocaleDropdown from 'flagrow/canned-messages/components/LocaleDropdown';
+import LocaleDropdown from './LocaleDropdown';
 import Select from 'flarum/components/Select';
 
 export default class MessageEdit extends Component {

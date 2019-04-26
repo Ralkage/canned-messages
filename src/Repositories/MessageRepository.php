@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Flagrow\CannedMessages\Repositories;
 
 use Flagrow\CannedMessages\Message;

@@ -4,12 +4,12 @@ namespace Flagrow\CannedMessages\Api\Controllers;
 
 use Flagrow\CannedMessages\Api\Serializers\MessageSerializer;
 use Flagrow\CannedMessages\Repositories\MessageRepository;
-use Flarum\Api\Controller\AbstractCollectionController;
-use Flarum\Core\Access\AssertPermissionTrait;
+use Flarum\Api\Controller\AbstractListController;
+use Flarum\User\AssertPermissionTrait;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
 
-class MessageIndexController extends AbstractCollectionController
+class MessageIndexController extends AbstractListController
 {
     use AssertPermissionTrait;
 

@@ -4,7 +4,7 @@ namespace Flagrow\CannedMessages\Api\Controllers;
 
 use Flagrow\CannedMessages\Repositories\MessageRepository;
 use Flarum\Api\Controller\AbstractDeleteController;
-use Flarum\Core\Access\AssertPermissionTrait;
+use Flarum\User\AssertPermissionTrait;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 

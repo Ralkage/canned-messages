@@ -2,7 +2,7 @@
 
 namespace Flagrow\CannedMessages\Validators;
 
-use Flarum\Core\Validator\AbstractValidator;
+use Flarum\Foundation\AbstractValidator;
 
 class MessageValidator extends AbstractValidator
 {

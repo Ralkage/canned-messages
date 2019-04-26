@@ -2,7 +2,7 @@ import {extend} from 'flarum/extend';
 import app from 'flarum/app';
 import AdminNav from 'flarum/components/AdminNav';
 import AdminLinkButton from 'flarum/components/AdminLinkButton';
-import MessagesPage from 'flagrow/canned-messages/components/MessagesPage';
+import MessagesPage from './components/MessagesPage';
 
 export default function () {
     // create the route

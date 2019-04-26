@@ -4,8 +4,8 @@ namespace Flagrow\CannedMessages\Listeners;
 
 use Flagrow\CannedMessages\Message;
 use Flagrow\CannedMessages\Repositories\MessageRepository;
-use Flarum\Event\ConfigureFormatter;
-use Flarum\Event\ConfigureFormatterRenderer;
+use Flarum\Formatter\Event\Configuring;
+use Flarum\Formatter\Event\Rendering;
 use Flarum\Locale\LocaleManager;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -15,8 +15,8 @@ class AddBBCode
 {
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(ConfigureFormatter::class, [$this, 'configure']);
-        $events->listen(ConfigureFormatterRenderer::class, [$this, 'render']);
+        $events->listen(Configuring::class, [$this, 'configure']);
+        $events->listen(Rendering::class, [$this, 'render']);
     }
 
     protected function getTagName(): string
@@ -35,7 +35,7 @@ class AddBBCode
         return Message::DEFAULT_BBTAG;
     }
 
-    public function configure(ConfigureFormatter $event)
+    public function configure(Configuring $event)
     {
         $tagName = $this->getTagName();
 
@@ -55,7 +55,7 @@ class AddBBCode
             ->setJS('function(tag) { return System.get("flagrow/canned-messages/utils/textFormatter").filterSavedMessage(tag); }');
     }
 
-    public function render(ConfigureFormatterRenderer $event)
+    public function render(Rendering $event)
     {
         $event->xml = Utils::replaceAttributes($event->xml, $this->getTagName(), function ($attributes) {
             $key = array_get($attributes, 'key');

@@ -1,16 +1,17 @@
 <?php
 
+
 namespace Flagrow\CannedMessages\Api\Controllers;
 
 use Flagrow\CannedMessages\Api\Serializers\MessageSerializer;
 use Flagrow\CannedMessages\Repositories\MessageRepository;
-use Flarum\Api\Controller\AbstractResourceController;
-use Flarum\Core\Access\AssertPermissionTrait;
+use Flarum\Api\Controller\AbstractListController;
+use Flarum\User\AssertPermissionTrait;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
 
-class MessageUpdateController extends AbstractResourceController
+class MessageUpdateController extends AbstractListController
 {
     use AssertPermissionTrait;
 

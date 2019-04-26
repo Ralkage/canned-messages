@@ -6,9 +6,9 @@ use Flagrow\CannedMessages\Api\Serializers\MessageSerializer;
 use Flagrow\CannedMessages\Repositories\MessageRepository;
 use Flarum\Api\Controller\ShowForumController;
 use Flarum\Api\Serializer\ForumSerializer;
-use Flarum\Event\ConfigureApiController;
+use Flarum\Api\Event\WillGetData;
 use Flarum\Event\GetApiRelationship;
-use Flarum\Event\PrepareApiData;
+use Flarum\Api\Event\WillSerializeData;
 use Flarum\Locale\LocaleManager;
 use Illuminate\Contracts\Events\Dispatcher;
 
@@ -17,8 +17,8 @@ class AddForumSavedMessagesRelationship
     public function subscribe(Dispatcher $events)
     {
         $events->listen(GetApiRelationship::class, [$this, 'getApiRelationship']);
-        $events->listen(PrepareApiData::class, [$this, 'loadRelationship']);
-        $events->listen(ConfigureApiController::class, [$this, 'includeRelationship']);
+        $events->listen(WillGetData::class, [$this, 'loadRelationship']);
+        $events->listen(GetApiRelationship::class, [$this, ' isRelationship']);
     }
 
     public function getApiRelationship(GetApiRelationship $event)
@@ -28,7 +28,7 @@ class AddForumSavedMessagesRelationship
         }
     }
 
-    public function loadRelationship(PrepareApiData $event)
+    public function loadRelationship(WillSerializeData $event)
     {
         /**
          * @var $messages MessageRepository
@@ -45,7 +45,7 @@ class AddForumSavedMessagesRelationship
         }
     }
 
-    public function includeRelationship(ConfigureApiController $event)
+    public function  isRelationship(WillGetData $event)
     {
         if ($event->isController(ShowForumController::class)) {
             $event->addInclude([

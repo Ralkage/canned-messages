@@ -1,31 +1,31 @@
 flagrow-canned-messages:
-    admin:
-        buttons:
-            add-message: Add message
-            save-message: Save message
-            delete-message: Delete message
-            configure-messages: Click to configure messages
-            configure-advanced: Configure advanced settings
-        menu:
-            title: Canned Messages
-            description: >
-                Custom bbcodes for recurring messages.
-        strings:
-            key: BBcode Key
-            locale: Locale
-            style: Style
-            content: Content
-        locales:
-            all: All
-        settings:
-            title: Canned Messages Settings
-            bbtag: Custom BBcode Tag
-            bbtag-help: >
-                Here you can change the bbcode used for the canned messages.
-                Changing this value will break all existing canned message with a different tag name!
-                You can only use uppercase A-Z, "-" and "_".
-                Don't forget to clear the cache after changing this value.
+  admin:
+    buttons:
+      add-message: Add message
+      save-message: Save message
+      delete-message: Delete message
+      configure-messages: Click to configure messages
+      configure-advanced: Configure advanced settings
+    menu:
+      title: Canned Messages
+      description: >
+        Custom bbcodes for recurring messages.
+    strings:
+      key: BBcode Key
+      locale: Locale
+      style: Style
+      content: Content
+    locales:
+      all: All
+    settings:
+      title: Canned Messages Settings
+      bbtag: Custom BBcode Tag
+      bbtag-help: >
+        Here you can change the bbcode used for the canned messages.
+        Changing this value will break all existing canned message with a different tag name!
+        You can only use uppercase A-Z, "-" and "_".
+        Don't forget to clear the cache after changing this value.
 
-    forum:
-        bbcode:
-            invalid-key: There should be a message here, but its content was deleted or isn't available in the current language
+  forum:
+    bbcode:
+      invalid-key: There should be a message here, but its content was deleted or isn't available in the current language

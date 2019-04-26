@@ -3,17 +3,17 @@
 namespace Flagrow\CannedMessages\Listeners;
 
 use Flagrow\CannedMessages\Validators\SettingsValidator;
-use Flarum\Event\PrepareSerializedSetting;
+use Flarum\Settings\Event\Serializing;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class CheckBBTagFormat
 {
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(PrepareSerializedSetting::class, [$this, 'check']);
+        $events->listen(Serializing::class, [$this, 'check']);
     }
 
-    public function check(PrepareSerializedSetting $event)
+    public function check(Serializing $event)
     {
         if ($event->key !== 'flagrow.canned-messages.bbtag') {
             return;

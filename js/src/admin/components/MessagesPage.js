@@ -1,9 +1,9 @@
 import app from 'flarum/app';
 import Page from 'flarum/components/Page';
 import Button from 'flarum/components/Button';
-import MessageEdit from 'flagrow/canned-messages/components/MessageEdit';
-import sortByProp from 'flagrow/canned-messages/utils/sortByProp';
-import Settings from 'flagrow/canned-messages/components/Settings';
+import MessageEdit from './MessageEdit';
+import sortByProp from '../utils/sortByProp';
+import Settings from './Settings';
 
 export default class MessagesPane extends Page {
     init() {
